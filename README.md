@@ -1,0 +1,2 @@
+# blog
+Hugo driven blog
