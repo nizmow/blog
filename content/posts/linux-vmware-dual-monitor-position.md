@@ -1,7 +1,9 @@
 ---
 title: "Incorrect dual monitor positioning in VMWare / Virtualbox with X11 guests"
 date: 2019-09-06T16:20:09+02:00
-draft: true
+description: "For people with unconventional monitor positioning"
+categories:
+- linux
 ---
 
 VMware Workstation has rich guest tooling and supports a range of graphical capabilitys in guests, even X11 guests. I do a lot of work in a full-screen VMWare session, and I prefer to have side-by-side monitors with different orientations, which require careful positioning to line up nicely.
@@ -57,7 +59,7 @@ And you'll hopefully see something like the following:
 
 ![Windows Sample](/WindowsTerminal_2019-09-06_13-34-34.png)
 
-Look at that! The second display has some kind of offset there: -620. As you can tell, Windows layouts work a little differently to xrandr. Windows treats the top left corner of the primary monitor as 0,0, so the move the portrait display above that the offset must be a negative. That's okay, we can probably just put that in to xrandr as a positive offset of the left monitor instead...
+Look at that! The second display has some kind of offset there: -620. As you can tell, Windows layouts work a little differently to xrandr. Windows treats the top left corner of the primary monitor as 0,0, so the move to portrait display above that the offset must be a negative. That's okay, we can probably just put that in to xrandr as a positive offset of the left monitor instead...
 
 `xrandr --output Virtual1 --auto --pos 0x620 --output Virtual2 --auto --pos 2560x0`
 
