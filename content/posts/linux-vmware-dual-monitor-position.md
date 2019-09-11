@@ -6,7 +6,7 @@ categories:
 - linux
 ---
 
-VMware Workstation has rich guest tooling and supports a range of graphical capabilitys in guests, even X11 guests. I do a lot of work in a full-screen VMWare session, and I prefer to have side-by-side monitors with different orientations, which require careful positioning to line up nicely.
+VMware Workstation has rich guest tooling and supports a range of graphical capabilities in guests, even X11 guests. I do a lot of work in a full-screen VMWare session, and I prefer to have side-by-side monitors with different orientations, which require careful positioning to line up nicely.
 
 This works okay in the host OS, but VMware is a little special. At first everything seems fine -- moving the mouse cursor between displays indicates they seem to (magically!) be aligned correctly. However, in many setups, mouse clicks will be offset from where the mouse pointer actually is. After a little experimentation what I have determined is happening is this:
 
