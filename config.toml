@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://nizmow.github.io/"
+languageCode = "en-nz"
+title = "Neil's Notes"
 theme = "hugo-flex"
 staticDir = "static"
 
