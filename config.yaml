@@ -1,0 +1,26 @@
+baseURL: 'https://nizmow.github.io/'
+languageCode: en-nz
+title: Neil's Notes
+theme: hugo-flex
+staticDir: static
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+
+params:
+  width: 42rem
+  color: '#465E75'
+  AuthorName: Neil Houghton
+  css:
+    - stylesheets/syntax.css
+
+permaLinks:
+  posts: '/:year/:month/:title/'
+
+menu:
+  nav:
+    - name: Posts
+      url: posts/
+      weight: 1
+    - name: Categories
+      url: categories/
+      weight: 2

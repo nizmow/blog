@@ -14,7 +14,7 @@ However, in some occasions you might want a message to be received by _all_ of y
 
 Luckily, MassTransit provides a simple way to configure temporary endpoints, exclusive to each instance. All you need to do is configure your receive endpoint without specifying a queue name:
 
-```
+{{< highlight cs>}}
 containerBuilder.AddMassTransit(r =>
 {
     r.AddBus(context => Bus.Factory.CreateUsingInMemory(cfg =>
@@ -26,7 +26,7 @@ containerBuilder.AddMassTransit(r =>
         cfg.ReceiveEndpoint(e => e.Consumer<InvalidateCacheConsumer>(context));
     }));
 });
-```
+{{</highlight>}}
 
 Once starting your application you'll see a queue named something like `MYHOST_dotnet_endpoint_8ymoyyn7ywybkygzbdms35zan8`. This looks messy, but it's all just to avoid queue naming collisions across services -- as you can see, it's prefixed with the host name of the server, some metadata, and a random(ish) string. It'll be set to auto-delete, meaning it'll disappear when your service does. After all, no point in receiving cache invalidation messages when your service instance isn't running.
 

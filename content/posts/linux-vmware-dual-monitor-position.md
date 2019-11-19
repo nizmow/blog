@@ -17,7 +17,7 @@ The result is that your clicks aren't going where you think they are. In the abs
 
 Luckily, X has great multi monitor support in the form of xrandr. This allows you to specify absolutely pixel-perfect monitor layout, based on n displays and a "virtual" space which is the smallest possible box that combines them all. Here's an example of my personal setup:
 
-```
+``` plaintext
 0,0
   .................................
   .                  .-----------..
@@ -34,9 +34,10 @@ Luckily, X has great multi monitor support in the form of xrandr. This allows yo
   .................................
                                4000,1440
 ```
+
 That's two 2560x1440 monitors, the right-hand side in portrait onrientation. Giving me a "virtual" space of 0,0 to 4000,1440 (2560+1440 being the 4000). According to xrandr, my layout looks like this:
 
-```
+``` plaintext
 ❯ xrandr --listmonitors
 Monitors: 2
  0: +*Virtual1 2560/677x1440/381+0+620  Virtual1
