@@ -1,5 +1,5 @@
 ---
-title: "Receiving a transient message on all service instances in MassTransit"
+title: "Receiving a message on all service instances in MassTransit"
 date: 2019-11-19T13:33:09+02:00
 
 categories:
