@@ -6,7 +6,7 @@ categories:
 - development
 ---
 
-## Background
+### Background
 
 Entity Framework Core 3.0 was recently released with a lot of changes from 2.2, many of which were [breaking](https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.0/breaking-changes). That's a pretty big list. Since I was updating projects to .NET Core 3.0, I decided to upgrade a small project to EF Core 3.0 and see what I'd have to go through for an upgrade against larger projects.
 
@@ -16,7 +16,7 @@ There have been "soft breaking" changes that result in performance regressions, 
 
 After fixing my small issue, I ran up the application and ran some basic integration tests. Everything seemed fine, so I dropped it onto a test environment to push some more load through, and I quickly realised performance had taken a _dramatic_ turn for the worse -- _at least an order of magnitude slower_ than the EF Core 2.0 version. The database use in this application was trivial, but I still went to the trouble of creating a scenario that was as simple as possible. In this, application did nothing more than execute a bunch of `SELECT x FROM y WHERE z`, and performance was still terrible. Something was up.
 
-## The problem
+### The problem
 
 I checked the logs to work out exactly what SQL was being executed. In the previous "good" version of the code, on EF 2.2, it was the following:
 
@@ -72,7 +72,7 @@ AND
 )
 ```
 
-## The solution
+### The solution
 
 Entity Framework is just trying to protect us from ourselves! What happens if we pass in a `NULL` for the SourceId parameter, and expect it to match rows in the database with a `NULL` SourceId? In EF 2.2, we'd get no results.[^2] In EF 3.0, however, it would work as expected. But in my case, SourceId is always going to be there, so why this convoluted query? Turns out, I'd got sloppy and neglected to set a `NOT NULL` constraint in my model definition. So, after rectifying that, and a few other properties I'd forgotten...
 

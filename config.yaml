@@ -1,4 +1,4 @@
-baseURL: 'https://nizmow.github.io/'
+baseURL: 'https://blog.nizmow.net/'
 languageCode: en-nz
 title: Neil's Notes
 theme: hugo-flex
@@ -10,8 +10,10 @@ params:
   width: 42rem
   color: '#465E75'
   AuthorName: Neil Houghton
+  summaries: true
   css:
     - stylesheets/syntax.css
+    - stylesheets/custom.css
 
 permaLinks:
   posts: '/:year/:month/:title/'

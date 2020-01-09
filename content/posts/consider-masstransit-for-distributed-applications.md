@@ -10,7 +10,7 @@ I wrote a brief post before with a small tip about [MassTransit](https://masstra
 
 MassTransit is a framework for writing distributed applications in .NET. You can probably think about it in a similar way you think about ASP.NET, except instead of passing data as HTTP payloads it uses a message broker (like RabbitMQ or Azure Service bus) and passes messages. If you're considering using HTTP to communicate between your applications (microservices, communication between monoliths, even, perhaps, communication _within_ monoliths) you should consider using a message broker and MassTransit instead.
 
-## ADVANTAGES
+### ADVANTAGES
 
 * The ability to easily publish events using a pub-sub type of architecture. The post I
 
