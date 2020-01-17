@@ -18,10 +18,9 @@ jobs:
       - name: Deploy
         if: success() && github.event_name != 'pull_request'
         uses: crazy-max/ghaction-github-pages@v1
-          with:
-            target_branch: gh-pages
-            build_dir: public
-            fqdn: blog.nizmow.net
-          env:
+        with:
+          target_branch: gh-pages
+          build_dir: public
+          fqdn: blog.nizmow.net
+        env:
             GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
-            
