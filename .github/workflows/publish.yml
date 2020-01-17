@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: Update submodules (theme)
+        run: |
+          git submodule sync --recursive && git submodule update --init --recursive
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1
         with:
