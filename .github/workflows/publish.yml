@@ -23,4 +23,4 @@ jobs:
           build_dir: public
           fqdn: blog.nizmow.net
         env:
-            GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+            GITHUB_PAT: ${{ secrets.BLOG_PUBLISH_PAT }}
