@@ -7,3 +7,6 @@ $RECYCLE.BIN/
 
 # OSX
 .DS_Store
+
+# deployment directory
+public/

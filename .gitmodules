@@ -1,7 +1,4 @@
 [submodule "themes/hugo-flex"]
 	path = themes/hugo-flex
 	url = https://github.com/de-souza/hugo-flex.git
-[submodule "public"]
-	path = public
-	url = git@github.com:nizmow/nizmow.github.io
-	branch = master
+
