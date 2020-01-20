@@ -1,7 +1,6 @@
 ---
-title: "Why you should (or shouldn't) consider MassTransit for distributed applications"
-date: 2020-01-17T16:00
-draft: true
+title: "Publishing your Hugo blog on Github Pages with a 'gh-pages' branch"
+date: 2020-01-20T19:13:23+01:00
 categories:
 - devops
 ---
@@ -10,7 +9,7 @@ I started this blog with Hugo because it's super fast and simple, and hosting wi
 
 ### Using a `gh-pages` branch
 
-First step was to switch away from a separate Github Pages repository to using a `gh-pages` branch of the current repository, since having a separate repository seemed messy. Using a separate branch like this seems a bit counterintuitive when you're thinking in the standard model of a git repository looking like a big tree, since this branch should just live on its own with no relation to `master`. Git has a name for this type of branch: an _orphan_[^1]. You can set up an empty orphan branch in an existing repository fairly easily:
+First step was to switch away from a separate Github Pages repository to using a `gh-pages` branch of the current repository, since having a separate repository seemed messy. Using a separate branch like this seems a bit counterintuitive when you're thinking in the standard model of a git repository looking like a big tree, since we want this branch to live on its own with no relation to `master`. Git has a name for this type of branch: an _orphan_[^1]. You can set up an empty orphan branch in an existing repository fairly easily:
 
 1) Make sure your `master` branch is clean (everything is committed).
 2) Create your `gh-pages` orphan branch: `git checkout --orphan gh-pages`.
@@ -19,28 +18,25 @@ First step was to switch away from a separate Github Pages repository to using a
 4) Push! `git push origin gh-pages`.
 5) Return to master: `git checkout master`.
 
-You've now got an empty `gh-pages` branch. Now might be a good time to go into your repository settings on Github and configure this branch for hosting. To test things out, you can do 
+You've now got an empty `gh-pages` branch. Now might be a good time to go into your repository settings on Github and configure this branch for hosting.
+
+### Manually publishing to the `gh-pages` branch
+
+With this done, you can now publish a Hugo build of your site from your `publish` folder to your new `gh-pages` branch. For this we use [`git worktree`](https://git-scm.com/docs/git-worktree). Later we can automate this, so it's probably not a good idea to push any changes.
+
+1) Make sure your `master` branch is clean.
+2) Remove your `public/` directory and add it to `.gitignore`.
+3) Run `hugo` to build and publish your site. You can now add and commit your published changes: `cd public && git add . && git commit -m "gh-pages commit!"`.
+4) Push! `git push origin gh-pages`.
+
+If all is well, you should be able to see your published content at the Github Pages site you configured earlier.
+
+If you intend to automate things, though, it's probably a good idea to get rid of the worktree just added (`rm -rf publish/ && git worktree prune`) and get started with Github Actions...
+
+### Automate with Github Actions
+
+Github Actions is a CI platform built into Github, and contributor [crazy-max](https://github.com/crazy-max) has built a whole lot of useful Actions to help with publishing Github Pages. There are a few steps to get Actions going on your repository, a good start is clicking the "Actions" tab and following the instructions. You can see the Actions definitions file I've used to automate publishing of this blog [here](https://github.com/nizmow/blog/blob/master/.github/workflows/publish.yml)... and if you poke through the commit history you can see some messy trial and error while I try to get things running right.
+
+With that done, you can push your Hugo code `master` and in a few seconds your blog will be updated for you. Who needs Wordpress?
 
 [^1]: you could probably do some really wild things with this. Mega-mono-repo?
-
-# END
-
-notes:
-
-creating a github pages branch:
-
-* make sure there are no outstanding commits in the repo
-* create an orphan branch: `git checkout --orphan gh-pages`
-* clear it out: `git reset --hard` (it's an orphan, this will delete everything)
-* make an empty commit so you can push: `git commit --allow-empty -m "Initial gh-pages commit"`
-* push the empty branch to your repo: `git push origin gh-pages`
-* you've got a github pages branch!
-
-updating:
-
-* in MASTER branch: `git checkout master`
-* make sure your public/ directory is ignored
-* commit any changes
-* use worktree to track the gh-pages branch in the public/ subdirectory: `git worktree add -B gh-pages public origin/gh-pages`
-* run `hugo` to publish and then add and push your changes to the gh-pages branch: `cd public && git add . && git commit -m "gh-pages commit"`
-* if all is well, push! `git push origin gh-pages`

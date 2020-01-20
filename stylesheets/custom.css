@@ -6,13 +6,13 @@
     font-size: xx-large;
 }
 
-p code {
+p code, li code {
     background-color: #EEE;
     padding: 5px;
 }
 
 code {
-    font-family: Cascadia Code,SFMono-Regular,Consolas,liberation mono,Menlo,Courier,monospace
+    font-family: Jetbrains Mono,Cascadia Code,SFMono-Regular,Consolas,liberation mono,Menlo,Courier,monospace
 }
 
 .Heading time {
