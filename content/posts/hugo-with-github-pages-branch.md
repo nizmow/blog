@@ -1,8 +1,11 @@
 ---
 title: "Publishing your Hugo blog on Github Pages with a 'gh-pages' branch"
 date: 2020-01-20T19:13:23+01:00
-categories:
+tags:
 - devops
+- github
+- git
+- guide
 ---
 
 I started this blog with Hugo because it's super fast and simple, and hosting with Github Pages because it's... super fast and simple. Until now I was building manually and publishing all pages manually to a separate repository, but that was a) tedious and b) limiting my options for eg: writing new posts on my iPad. Today I had some time on my hands and decided to automate this process.

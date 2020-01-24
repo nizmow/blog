@@ -2,8 +2,11 @@
 title: "Entity Framework Core performance and required properties"
 date: 2019-12-03T12:47:16+01:00
 
-categories:
+tags:
 - development
+- c#
+- entity framework
+- issue
 ---
 
 ### Background

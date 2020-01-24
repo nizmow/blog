@@ -2,8 +2,11 @@
 title: "Incorrect dual monitor positioning in VMWare / Virtualbox with X11 guests"
 date: 2019-09-06T16:20:09+02:00
 description: "For people with unconventional monitor positioning"
-categories:
+tags:
 - linux
+- x11
+- powershell
+- issue
 ---
 
 VMware Workstation has rich guest tooling and supports a range of graphical capabilities in guests, even X11 guests. I do a lot of work in a full-screen VMWare session, and I prefer to have side-by-side monitors with different orientations, which require careful positioning to line up nicely.

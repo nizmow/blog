@@ -2,8 +2,11 @@
 title: "Receiving a message on all service instances in MassTransit"
 date: 2019-11-19T13:33:09+02:00
 
-categories:
+tags:
 - development
+- c#
+- masstransit
+- guide
 ---
 
 [MassTransit](https://masstransit-project.com) is an excellent distributed application framework for .NET that I intend to write more about later. This post documents a solution to a problem you'll probably come across when developing distributed applications with MassTransit.
